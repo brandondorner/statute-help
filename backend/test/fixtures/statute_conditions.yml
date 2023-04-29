@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dependent_url: MyString
+  type: 
+  text: MyString
+  statute_id: MyString
+
+two:
+  dependent_url: MyString
+  type: 
+  text: MyString
+  statute_id: MyString

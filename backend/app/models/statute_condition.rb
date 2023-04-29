@@ -1,0 +1,2 @@
+class StatuteCondition < ApplicationRecord
+end
