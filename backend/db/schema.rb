@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,28 +12,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_01_215957) do
+ActiveRecord::Schema[7.0].define(version: 20_230_501_215_957) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "condition_fields", force: :cascade do |t|
-    t.string "options", default: [], array: true
-    t.string "input_name"
-    t.string "input_type"
-    t.string "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "statute_id", null: false
-    t.index ["statute_id"], name: "index_condition_fields_on_statute_id"
+  create_table 'condition_fields', force: :cascade do |t|
+    t.string 'options', default: [], array: true
+    t.string 'input_name'
+    t.string 'input_type'
+    t.string 'text'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'statute_id', null: false
+    t.index ['statute_id'], name: 'index_condition_fields_on_statute_id'
   end
 
-  create_table "statutes", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.text "conditions"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'statutes', force: :cascade do |t|
+    t.string 'name'
+    t.string 'url'
+    t.text 'conditions'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "condition_fields", "statutes"
+  add_foreign_key 'condition_fields', 'statutes'
 end

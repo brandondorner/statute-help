@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class StatuteTest < ActiveSupport::TestCase
+class ConditionFieldTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

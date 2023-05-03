@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateConditionFields < ActiveRecord::Migration[7.0]
   def change
     create_table :condition_fields do |t|
