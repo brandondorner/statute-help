@@ -1,3 +1,7 @@
+AllCops:
+  Include:
+    - '**/*.rb'
+
 require:
   - rubocop-rails
 
