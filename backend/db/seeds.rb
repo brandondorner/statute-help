@@ -31,7 +31,8 @@ condition_field1 = statute1.condition_fields.create!(
 
 # Create condition fields for statute 2
 condition_field2 = statute2.condition_fields.create!(
-  input_name: 'weight', input_type: 'dropdown',
+  input_name: 'weight',
+  input_type: 'dropdown',
   text: 'Select weight amount', options: ['0 - 5 grams', '5 - 10 grams', 'More than 10 grams']
 )
 
