@@ -1,7 +1,6 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
-import Header from './components/Header/Header'
-import Body from './components/Body/Body'
+import { Flex } from '@chakra-ui/react'
 import { Route, Routes } from 'react-router-dom'
+import Home from 'pages/Home'
 
 const App = () => {
 	return (

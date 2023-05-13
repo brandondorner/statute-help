@@ -26,6 +26,7 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "settings": {
+      "import/core-modules": ["react-select"],
     "import/resolver": {
       "typescript": {
         "project": "./tsconfig.json"
