@@ -52,7 +52,7 @@ aggravated_assault_rs_14_37 = Statute.create!(
       sentence: 'The offender shall be imprisoned for not less than one hundred twenty days without benefit of suspension of sentence nor more than six months and may be fined not more than one thousand dollars.'
     },
   ],
-  name: 'Aggravated Assualt - RS 14:37',
+  name: 'Aggravated Assault - RS 14:37',
   url: 'https://www.legis.la.gov/legis/Law.aspx?d=78478'
 )
 
@@ -67,9 +67,9 @@ Statute.create!(
   conditions: [
     {
       sentence: 'Shall be fined not more than ten thousand dollars or imprisoned for not more than ten years, with or without hard labor, or both.'
-    },
+    }
   ],
-  name: 'Aggravated Assualt - RS 14:37.4',
+  name: 'Aggravated Assault - RS 14:37.4',
   url: 'https://www.legis.la.gov/legis/Law.aspx?d=78482'
 )
 
