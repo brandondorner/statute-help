@@ -2,7 +2,7 @@
 
 class StatuteController < ApplicationController
   def index
-    statutes = Statute.all
+    statutes = Statute.select(:id, :name, :url)
     render json: statutes
   end
 end
