@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_01_215957) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_14_021026) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "condition_fields", force: :cascade do |t|
-    t.string "options", default: [], array: true
     t.string "input_name"
     t.string "input_type"
     t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "statute_id", null: false
+    t.text "options"
     t.index ["statute_id"], name: "index_condition_fields_on_statute_id"
   end
 
