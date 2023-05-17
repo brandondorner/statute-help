@@ -22,9 +22,9 @@ statute1.condition_fields.create!(
 
 statute2 = Statute.create!(
   conditions: [
-    { weight: '0 - 5 grams', sentence: '1 year' },
-    { weight: '5 - 10 grams', sentence: '3 years' },
-    { weight: 'More than 10 grams', sentence: '5 years' }
+    { weight: 1, sentence: '1 year' },
+    { weight: 2, sentence: '3 years' },
+    { weight: 3, sentence: '5 years' }
   ],
   name: 'Statute 2',
   url: 'http://example.com/statute2'
@@ -35,7 +35,7 @@ statute2.condition_fields.create!(
   input_name: 'weight',
   input_type: 'dropdown',
   text: 'Select weight amount',
-  options: ['0 - 5 grams', '5 - 10 grams', 'More than 10 grams']
+  options: [{ label: '0 - 5 grams', value: 0 }, { label: '5 - 10 grams', value: 1 }, { label: 'More than 10 grams', value: 2 }]
 )
 
 # Real data
