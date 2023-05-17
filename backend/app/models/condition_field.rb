@@ -3,5 +3,5 @@
 class ConditionField < ApplicationRecord
   belongs_to :statute
 
-  serialize :options, JSON
+  serialize :options, Array
 end
