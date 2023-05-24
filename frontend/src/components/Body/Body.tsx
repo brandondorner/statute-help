@@ -19,6 +19,7 @@ const Body = () => {
 				// defaultValue={statutes[0]} grab this from query params later on
 				isLoading={isLoading}
 				isSearchable={true}
+				getOptionLabel={(option) => option.name}
 				getOptionValue={(option) => option.name}
 				onChange={(value) => setSelectedStatute(value)}
 				name="color"
