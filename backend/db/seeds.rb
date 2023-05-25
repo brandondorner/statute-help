@@ -38,6 +38,32 @@ statute2.condition_fields.create!(
   options: [{ label: '0 - 5 grams', value: 0 }, { label: '5 - 10 grams', value: 1 }, { label: 'More than 10 grams', value: 2 }]
 )
 
+# More condition complexity
+statute3 = Statute.create!(
+  conditions: [
+    { felon: false, repeat: false, sentence: '1 year and $5,000 fine' },
+    { felon: false, repeat: true, sentence: '5 years and $5,000 fine' },
+    { felon: true, repeat: false, sentence: '12 years and $5,000 fine' },
+    { felon: true, repeat: true, sentence: '20 years and $10,000 fine' }
+  ],
+  name: 'Statute 3', url: 'http://example.com/statute'
+)
+
+# Create condition fields for statute 1
+statute3.condition_fields.create!(
+  [
+    {
+      input_name: 'repeat',
+      input_type: 'checkbox',
+      text: 'Is this a repeat offense?'
+    },
+    {
+      input_name: 'felon',
+      input_type: 'checkbox',
+      text: 'Is the offender a felon?'
+    }
+  ]
+)
 # Real data
 
 # Aggravated Assault RS 14:37
