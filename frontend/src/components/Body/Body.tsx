@@ -4,10 +4,12 @@ import Loading from 'components/Loading'
 import useAllStatutes from 'hooks/useAllStatutes'
 import { useState } from 'react'
 import Statute from 'types/statute'
+import ConditionForm from './ConditionForm'
 
 const Body = () => {
 	const [selectedStatute, setSelectedStatute] = useState<Statute | null>()
 	const { statutes, isLoading } = useAllStatutes()
+	const [isFormDirty, setIsFormDirty] = useState(false)
 
 	if (isLoading) {
 		return <Loading />
@@ -63,6 +65,10 @@ const Body = () => {
 						>
 							{selectedStatute.url}
 						</Link>
+						<ConditionForm
+							id={selectedStatute.id}
+							setIsFormDirty={setIsFormDirty}
+						/>
 					</Flex>
 				</>
 			) : null}
