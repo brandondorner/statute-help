@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Flex, Heading, Link } from '@chakra-ui/react'
 import Select from 'react-select'
 import Loading from 'components/Loading'
 import useAllStatutes from 'hooks/useAllStatutes'
@@ -38,9 +38,28 @@ const Body = () => {
 				}}
 			/>
 			{selectedStatute ? (
-				<Flex>
-					<Box>{selectedStatute.name}</Box>
-				</Flex>
+				<>
+					<Flex
+						flexDir={'column'}
+						mt={10}
+						p={16}
+						border={'whitesmoke solid 1px'}
+						borderRadius={'8px'}
+						minHeight={'50vh'}
+					>
+						<Heading textAlign={'center'} mb={0}>
+							{selectedStatute.name}
+						</Heading>
+						<Link
+							cursor={'pointer'}
+							href={selectedStatute.url}
+							isExternal
+							textAlign={'center'}
+						>
+							{selectedStatute.url}
+						</Link>
+					</Flex>
+				</>
 			) : null}
 		</Flex>
 	)
