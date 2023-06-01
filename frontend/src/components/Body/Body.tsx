@@ -14,22 +14,27 @@ const Body = () => {
 	}
 
 	return (
-		<Flex direction={'column'}>
+		<Flex direction={'column'} gap={'32px'} width={'80%'}>
 			<Select
-				// defaultValue={statutes[0]} grab this from query params later on
 				isLoading={isLoading}
 				isSearchable={true}
+				value={selectedStatute}
 				getOptionLabel={(option) => option.name}
 				getOptionValue={(option) => option.name}
-				onChange={(value) => setSelectedStatute(value)}
-				name="color"
+				onChange={(value) => {
+					setSelectedStatute(value)
+					if (value) {
+						navigate(`/statute/${value.id}`)
+					}
+				}}
+				name="statutes"
 				options={statutes}
-				placeholder="Select Statute"
 				styles={{
 					container: (baseStyles) => ({
 						...baseStyles,
-						width: '40vw',
+						alignSelf: 'center',
 						minWidth: '300px',
+						width: '40vw',
 					}),
 					option: (baseStyles) => ({
 						...baseStyles,
