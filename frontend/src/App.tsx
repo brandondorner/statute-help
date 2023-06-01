@@ -10,9 +10,11 @@ const App = () => {
 			height={'90vh'}
 			width={'100vw'}
 		>
-			{/* <Routes>
+			<Routes>
 				<Route path="/" element={<Home />} />
-			</Routes> */}
+				<Route path="/statute" element={<Home />} />
+				<Route path="/statute/:statuteId/*" element={<Home />} />
+			</Routes>
 		</Flex>
 	)
 }
