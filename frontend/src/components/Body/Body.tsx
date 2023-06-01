@@ -1,15 +1,31 @@
 import { Flex, Heading, Link } from '@chakra-ui/react'
+import { useParams } from 'react-router-dom'
 import Select from 'react-select'
 import Loading from 'components/Loading'
 import useAllStatutes from 'hooks/useAllStatutes'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Statute from 'types/statute'
 import ConditionForm from './ConditionForm'
 
 const Body = () => {
 	const [selectedStatute, setSelectedStatute] = useState<Statute | null>()
 	const { statutes, isLoading } = useAllStatutes()
+	const { statuteId } = useParams()
 	const [isFormDirty, setIsFormDirty] = useState(false)
+
+	// If there is a statuteId in the params then set the corresponding statute to selectedStatute
+	// This way we have the persisted statute even on refresh or manual url navigation
+	useEffect(() => {
+		if (statuteId) {
+			const statuteFromParams = statutes.find(
+				(statute) => `${statute.id}` === statuteId
+			)
+
+			if (statuteFromParams) {
+				setSelectedStatute(statuteFromParams)
+			}
+		}
+	}, [isLoading, setSelectedStatute, statuteId])
 
 	if (isLoading) {
 		return <Loading />
