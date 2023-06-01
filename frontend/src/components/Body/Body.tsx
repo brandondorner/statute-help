@@ -1,5 +1,5 @@
 import { Flex, Heading, Link } from '@chakra-ui/react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Select from 'react-select'
 import Loading from 'components/Loading'
 import useAllStatutes from 'hooks/useAllStatutes'
@@ -11,6 +11,7 @@ const Body = () => {
 	const [selectedStatute, setSelectedStatute] = useState<Statute | null>()
 	const { statutes, isLoading } = useAllStatutes()
 	const { statuteId } = useParams()
+	const navigate = useNavigate()
 	const [isFormDirty, setIsFormDirty] = useState(false)
 
 	// If there is a statuteId in the params then set the corresponding statute to selectedStatute
