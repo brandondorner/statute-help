@@ -6,12 +6,16 @@ import useAllStatutes from 'hooks/useAllStatutes'
 import { useEffect, useState } from 'react'
 import Statute from 'types/statute'
 import ConditionForm from './ConditionForm'
+import useCondition from 'hooks/useCondition'
+import Sentence from './Sentence'
 
 const Body = () => {
 	const [selectedStatute, setSelectedStatute] = useState<Statute | null>()
 	const { statutes, isLoading } = useAllStatutes()
 	const { statuteId } = useParams()
 	const navigate = useNavigate()
+	const { condition } = useCondition()
+	// const { condition, isLoading: isConditionLoading } = useCondition()
 	const [isFormDirty, setIsFormDirty] = useState(false)
 
 	// If there is a statuteId in the params then set the corresponding statute to selectedStatute
@@ -87,6 +91,7 @@ const Body = () => {
 							setIsFormDirty={setIsFormDirty}
 						/>
 					</Flex>
+					<Sentence condition={condition} isFormDirty={isFormDirty} />
 				</>
 			) : null}
 		</Flex>
