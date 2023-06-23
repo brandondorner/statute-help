@@ -85,7 +85,7 @@ aggravated_assault_rs_14_37 = Statute.create!(
 aggravated_assault_rs_14_37.condition_fields.create!(
   input_name: 'while_stealing',
   input_type: 'checkbox',
-  text: "Was the offense committed upon a store's or merchant's employee while the offender is engaged in the perpetration or attempted perpetration of theft of goods"
+  text: "Was the offense committed upon a store's or merchant's employee while the offender is engaged in the perpetration or attempted perpetration of theft of goods?"
 )
 
 # Aggravated Assault RS 14:37.4
