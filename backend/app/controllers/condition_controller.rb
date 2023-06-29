@@ -23,6 +23,3 @@ class ConditionController < ApplicationController
     end
   end
 end
-
-
-# next update the conditional inputs displayed in the conditionForm
