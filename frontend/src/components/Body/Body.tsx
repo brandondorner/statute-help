@@ -78,6 +78,7 @@ const Body = () => {
 							{selectedStatute.name}
 						</Heading>
 						<Link
+							alignSelf={'center'}
 							cursor={'pointer'}
 							href={selectedStatute.url}
 							isExternal
