@@ -88,14 +88,14 @@ aggravated_assault_rs_14_37.condition_fields.create!(
   text: "Was the offense committed upon a store's or merchant's employee while the offender is engaged in the perpetration or attempted perpetration of theft of goods?"
 )
 
-# Aggravated Assault RS 14:37.4
+# Aggravated Assault With A Firearm RS 14:37.4
 Statute.create!(
   conditions: [
     {
       sentence: 'Shall be fined not more than ten thousand dollars or imprisoned for not more than ten years, with or without hard labor, or both.'
     }
   ],
-  name: 'Aggravated Assault - RS 14:37.4',
+  name: 'Aggravated Assault With A Firearm - RS 14:37.4',
   url: 'https://www.legis.la.gov/legis/Law.aspx?d=78482'
 )
 
