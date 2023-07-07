@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-class ConditionController < ApplicationController
+class SentenceController < ApplicationController
   def show
     statute = Statute.find(params[:id])
     conditions = statute.conditions
 
     return render json: conditions[0] if conditions.length == 1
 
-    render json: find_matching_condition(conditions, statute)
+    render json: find_matching_sentence(conditions, statute)
   end
 
   private
 
-  def find_matching_condition(conditions, statute)
+  def find_matching_sentence(conditions, statute)
     conditions.find do |condition|
       statute.condition_fields.all? do |field|
         param_condition = params[field.input_name] || 'false'
