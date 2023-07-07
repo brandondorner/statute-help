@@ -8,6 +8,8 @@ class StatuteController < ApplicationController
 
   def show
     statute = Statute.includes(:condition_fields).find(params[:id])
-    render json: statute.condition_fields.as_json(only: %i[dependent_condition dependent_on input_name input_type text], methods: [:options])
+    render json: statute.condition_fields.as_json(
+      only: %i[dependent_condition dependent_on input_name input_type text], methods: [:options]
+    )
   end
 end
