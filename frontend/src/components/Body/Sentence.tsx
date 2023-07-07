@@ -1,5 +1,5 @@
 import { Flex, Heading, Text } from '@chakra-ui/react'
-import Condition from 'types/condition'
+import Condition from 'types/sentence'
 
 type Props = {
 	condition: Condition

@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import axiosClient from '../network/axiosClient'
-import Condition from 'types/condition'
+import Sentence from 'types/sentence'
 
 type ReturnValue = {
-	data: Condition
+	data: Sentence
 	isLoading: boolean
 }
 
@@ -12,20 +12,20 @@ type Props = {
 	query: string
 }
 
-const useGetCondition = ({ statuteId, query }: Props): ReturnValue => {
+const useGetSentence = ({ statuteId, query }: Props): ReturnValue => {
 	const response = useQuery({
-		queryKey: ['condition', query, statuteId],
+		queryKey: ['sentence', query, statuteId],
 		queryFn: async () => {
 			return statuteId
-				? axiosClient.get(`/condition/${statuteId}/${query}`)
+				? axiosClient.get(`/sentence/${statuteId}/${query}`)
 				: null
 		},
 	})
 
 	return {
-		data: response.data?.data as Condition,
+		data: response.data?.data as Sentence,
 		isLoading: response.isLoading,
 	}
 }
 
-export default useGetCondition
+export default useGetSentence
