@@ -143,14 +143,14 @@ negligent_arson_rs_14_52_2.condition_fields.create!(
       dependent_on: 'death',
       input_name: 'endangerment',
       input_type: 'checkbox',
-      text: 'Was the crime of negligent arson commited where it is foreseeable that human life might be endangered?',
+      text: 'Was the crime of negligent arson commited where it is foreseeable that human life might be endangered?'
     },
     {
       dependent_condition: 'false',
       dependent_on: 'endangerment',
       input_name: 'first_conviction',
       input_type: 'checkbox',
-      text: 'Was this the first conviction of negiglent arson?',
+      text: 'Was this the first conviction of negiglent arson?'
     }
   ]
 )
