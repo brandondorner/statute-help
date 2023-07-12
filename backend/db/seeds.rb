@@ -115,6 +115,19 @@ Statute.create!(
   title: 'Simple Assault - RS 14:38',
   url: 'https://www.legis.la.gov/legis/Law.aspx?d=78491'
 )
+
+# Mingling Harmful Substances RS 14:38.1
+Statute.create!(
+  conditions: [
+    {
+      sentence: 'Whoever commits the crime of mingling harmful substances shall be imprisoned, with or without hard labor, for not more than two years or fined not more than one thousand dollars, or both.'
+    },
+  ],
+  name: 'RS-14-38-1',
+  title: 'Mingling Harmful Substances - RS 14:38.1',
+  url: 'https://www.legis.la.gov/legis/Law.aspx?d=78491'
+)
+
 # Negligent Arson - RS 14:52.2
 negligent_arson_rs_14_52_2 = Statute.create!(
   conditions: [
