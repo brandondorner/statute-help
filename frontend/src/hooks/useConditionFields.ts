@@ -7,11 +7,11 @@ type ReturnValue = {
 }
 
 type Props = {
-	id: number
+	name: string
 }
 
-const useConditionFields = ({ id }: Props): ReturnValue => {
-	const { data, isLoading } = useGetConditionFields(id)
+const useConditionFields = ({ name }: Props): ReturnValue => {
+	const { data, isLoading } = useGetConditionFields(name)
 
 	return {
 		isLoading,

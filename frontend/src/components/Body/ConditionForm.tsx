@@ -8,13 +8,13 @@ import makeSearchParams from 'utils/makeSearchParams'
 import ConditionField from 'types/conditionField'
 
 type Props = {
-	id: number
+	name: string
 	setIsFormDirty: Dispatch<SetStateAction<boolean>>
 }
 
-const ConditionForm = ({ id, setIsFormDirty }: Props) => {
+const ConditionForm = ({ name, setIsFormDirty }: Props) => {
 	const navigate = useNavigate()
-	const { conditionFields, isLoading } = useConditionFields({ id })
+	const { conditionFields, isLoading } = useConditionFields({ name })
 	const query = useLocation().search
 
 	const [formValues, setFormValues] = useState<{
@@ -41,6 +41,7 @@ const ConditionForm = ({ id, setIsFormDirty }: Props) => {
 		return <Loading />
 	}
 
+	// Grab the initial form values from the url query params
 	const getOptionFromQuery = ({ field }: { field: ConditionField }) =>
 		field.options
 			? field.options.find(
@@ -49,24 +50,44 @@ const ConditionForm = ({ id, setIsFormDirty }: Props) => {
 			  )
 			: null
 
+	const handleFieldChange = (fieldName: string, value: string) => {
+		setFormValues((prevFormValues) => ({
+			...prevFormValues,
+			[fieldName]: value,
+		}))
+		setIsFormDirty(true)
+	}
+
 	const handleSubmit = () => {
-		const searchParams = makeSearchParams({ params: formValues })
-		navigate(`/statute/${id}?${searchParams}`)
+		const parsedFormValues: { [key: string]: string } = {}
+		// When submitting we should set any form value to false if its corresponding condition field should not be
+		// displayed. This essentially cleans the form values when making changes to a complex condition field form.
+		conditionFields.forEach((field) => {
+			if (shouldDisplayField(field)) {
+				parsedFormValues[field.input_name] = formValues[field.input_name]
+			} else {
+				parsedFormValues[field.input_name] = 'false'
+			}
+		})
+
+		const searchParams = makeSearchParams({ params: parsedFormValues })
+		navigate(`/statute/${name}?${searchParams}`)
 		setIsFormDirty(false)
 	}
 
 	return (
-		<Flex flexDir={'column'} height={'100%'} mt="16px">
+		<Flex flexDir="column" height="100%" mt="16px">
 			{conditionFields.map((field) => {
 				const inputName = field.input_name
 				const isQueryTrue = formValues[inputName] === 'true'
-				const defaultOption = getOptionFromQuery({ field }) || {
-					label: field.text,
-					value: '',
+				const defaultOption = getOptionFromQuery({ field })
+
+				if (!shouldDisplayField(field)) {
+					return null
 				}
 
 				return (
-					<Flex key={`input-${inputName}`}>
+					<Flex alignItems={'center'} key={`input-${inputName}`}>
 						<FormLabel htmlFor={inputName} pr={8}>
 							{field.text}
 						</FormLabel>
@@ -78,12 +99,7 @@ const ConditionForm = ({ id, setIsFormDirty }: Props) => {
 									if (!option) {
 										return
 									}
-
-									setFormValues({
-										...formValues,
-										[inputName]: option.value,
-									})
-									setIsFormDirty(true)
+									handleFieldChange(inputName, option.value)
 								}}
 								options={field.options}
 								name={inputName}
@@ -107,11 +123,7 @@ const ConditionForm = ({ id, setIsFormDirty }: Props) => {
 								checked={isQueryTrue}
 								id={inputName}
 								onChange={(event) => {
-									setFormValues({
-										...formValues,
-										[inputName]: `${event.target.checked}`,
-									})
-									setIsFormDirty(true)
+									handleFieldChange(inputName, `${event.target.checked}`)
 								}}
 								type={field.input_type}
 							/>
@@ -119,14 +131,12 @@ const ConditionForm = ({ id, setIsFormDirty }: Props) => {
 					</Flex>
 				)
 			})}
-			<Flex alignItems={'flex-end'} height={'100%'} justifyContent={'center'}>
+			<Flex alignItems="flex-end" height="100%" justifyContent="center">
 				{conditionFields.length ? (
 					<Button
 						colorScheme="teal"
-						onClick={() => {
-							handleSubmit()
-						}}
-						height={'fit-content'}
+						onClick={handleSubmit}
+						height="fit-content"
 						mt={4}
 						type="submit"
 					>

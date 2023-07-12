@@ -2,7 +2,7 @@
 
 class SentenceController < ApplicationController
   def show
-    statute = Statute.find(params[:id])
+    statute = Statute.find_by name: params[:name]
     conditions = statute.conditions
 
     return render json: conditions[0] if conditions.length == 1

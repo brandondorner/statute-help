@@ -12,24 +12,24 @@ import Sentence from './Sentence'
 const Body = () => {
 	const [selectedStatute, setSelectedStatute] = useState<Statute | null>()
 	const { statutes, isLoading } = useAllStatutes()
-	const { statuteId } = useParams()
+	const { name } = useParams()
 	const navigate = useNavigate()
 	const { condition } = useSentence()
 	const [isFormDirty, setIsFormDirty] = useState(false)
 
-	// If there is a statuteId in the params then set the corresponding statute to selectedStatute
+	// If there is a name in the params then set the corresponding statute to selectedStatute
 	// This way we have the persisted statute even on refresh or manual url navigation
 	useEffect(() => {
-		if (statuteId) {
+		if (name) {
 			const statuteFromParams = statutes.find(
-				(statute) => `${statute.id}` === statuteId
+				(statute) => `${statute.name}` === name
 			)
 
 			if (statuteFromParams) {
 				setSelectedStatute(statuteFromParams)
 			}
 		}
-	}, [isLoading, setSelectedStatute, statuteId])
+	}, [isLoading, setSelectedStatute, name])
 
 	if (isLoading) {
 		return <Loading />
@@ -41,12 +41,12 @@ const Body = () => {
 				isLoading={isLoading}
 				isSearchable={true}
 				value={selectedStatute}
-				getOptionLabel={(option) => option.name}
+				getOptionLabel={(option) => option.title}
 				getOptionValue={(option) => option.name}
 				onChange={(value) => {
 					setSelectedStatute(value)
 					if (value) {
-						navigate(`/statute/${value.id}`)
+						navigate(`/statute/${value.name}`)
 					}
 				}}
 				name="statutes"
@@ -75,7 +75,7 @@ const Body = () => {
 						minHeight={'50vh'}
 					>
 						<Heading textAlign={'center'} mb={0}>
-							{selectedStatute.name}
+							{selectedStatute.title}
 						</Heading>
 						<Link
 							alignSelf={'center'}
@@ -87,7 +87,7 @@ const Body = () => {
 							{selectedStatute.url}
 						</Link>
 						<ConditionForm
-							id={selectedStatute.id}
+							name={selectedStatute.name}
 							setIsFormDirty={setIsFormDirty}
 						/>
 					</Flex>

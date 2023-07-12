@@ -14,7 +14,7 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/statute" element={<Home />} />
-				<Route path="/statute/:statuteId/*" element={<Home />} />
+				<Route path="/statute/:name/*" element={<Home />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
 		</Flex>

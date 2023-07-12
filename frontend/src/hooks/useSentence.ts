@@ -8,10 +8,10 @@ type ReturnValue = {
 }
 
 const useSentence = (): ReturnValue => {
-	const { statuteId } = useParams()
+	const { name } = useParams()
 	const query = useLocation().search
 
-	const { data, isLoading } = useGetSentence({ statuteId, query })
+	const { data, isLoading } = useGetSentence({ name, query })
 
 	return {
 		condition: data,

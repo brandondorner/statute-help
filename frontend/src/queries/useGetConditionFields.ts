@@ -7,10 +7,10 @@ type ReturnValue = {
 	isLoading: boolean
 }
 
-const useGetConditionFields = (id: number): ReturnValue => {
+const useGetConditionFields = (name: string): ReturnValue => {
 	const response = useQuery({
-		queryKey: ['conditionFields', id],
-		queryFn: async () => axiosClient.get(`/statute/${id}`),
+		queryKey: ['conditionFields', name],
+		queryFn: async () => axiosClient.get(`/statute/${name}`),
 	})
 
 	return {

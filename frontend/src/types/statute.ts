@@ -6,6 +6,7 @@ type Statute = {
 	conditions: StatuteCondition[]
 	id: number
 	name: string
+	title: string
 	url: string
 }
 

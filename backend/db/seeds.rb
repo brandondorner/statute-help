@@ -10,7 +10,8 @@ statute1 = Statute.create!(
     { repeat: true, sentence: '12 years and $5,000 fine' },
     { repeat: false, sentence: '5 years and $1,000 fine' }
   ],
-  name: 'Example Statute', url: 'http://example.com/statute'
+  name: 'statute-1',
+  title: 'Example Statute', url: 'http://example.com/statute'
 )
 
 # Create condition fields for statute 1
@@ -26,7 +27,8 @@ statute2 = Statute.create!(
     { weight: 2, sentence: '3 years' },
     { weight: 3, sentence: '5 years' }
   ],
-  name: 'Statute 2',
+  name: 'statute-2',
+  title: 'Statute 2',
   url: 'http://example.com/statute2'
 )
 
@@ -46,7 +48,8 @@ statute3 = Statute.create!(
     { felon: true, repeat: false, sentence: '12 years and $5,000 fine' },
     { felon: true, repeat: true, sentence: '20 years and $10,000 fine' }
   ],
-  name: 'Statute 3', url: 'http://example.com/statute'
+  name: 'statute-3',
+  title: 'Statute 3', url: 'http://example.com/statute'
 )
 
 # Create condition fields for statute 1
@@ -78,7 +81,8 @@ aggravated_assault_rs_14_37 = Statute.create!(
       sentence: 'The offender shall be imprisoned for not less than one hundred twenty days without benefit of suspension of sentence nor more than six months and may be fined not more than one thousand dollars.'
     }
   ],
-  name: 'Aggravated Assault - RS 14:37',
+  name: 'RS-14-37',
+  title: 'Aggravated Assault - RS 14:37',
   url: 'https://www.legis.la.gov/legis/Law.aspx?d=78478'
 )
 
@@ -95,7 +99,8 @@ Statute.create!(
       sentence: 'Shall be fined not more than ten thousand dollars or imprisoned for not more than ten years, with or without hard labor, or both.'
     }
   ],
-  name: 'Aggravated Assault With A Firearm - RS 14:37.4',
+  name: 'RS-14-37-4',
+  title: 'Aggravated Assault with A Firearm - RS 14:37.4',
   url: 'https://www.legis.la.gov/legis/Law.aspx?d=78482'
 )
 
@@ -121,7 +126,8 @@ negligent_arson_rs_14_52_2 = Statute.create!(
       sentence: ' On a first conviction, the offender shall be fined not more than one thousand dollars, or imprisoned for not more than six months, or both. In addition, the offender shall be ordered to pay restitution for damages sustained.'
     }
   ],
-  name: 'Negligent Arson - RS 14:52.2',
+  name: 'RS-14-52-2',
+  title: 'Negligent Arson - RS 14:52.2',
   url: 'https://www.legis.la.gov/legis/Law.aspx?d=1106710'
 )
 
@@ -156,7 +162,8 @@ rs_14_225 = Statute.create!(
     { damage: 2, sentence: 'The offender shall be fined not more than one thousand dollars, or imprisoned, with or without hard labor, for not more than two years or both.' },
     { damage: 3, sentence: 'The offender shall be fined not more than ten thousand dollars, or imprisoned, with or without hard labor, for not less than one nor more than ten years, or both.' }
   ],
-  name: 'Institutional Vandalism - RS 14:225',
+  name: 'RS-14-225',
+  title: 'Institutional Vandalism - RS 14:225',
   url: 'https://www.legis.la.gov/legis/Law.aspx?d=78375'
 )
 

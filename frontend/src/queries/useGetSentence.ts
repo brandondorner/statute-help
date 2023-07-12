@@ -8,17 +8,15 @@ type ReturnValue = {
 }
 
 type Props = {
-	statuteId?: string
+	name?: string
 	query: string
 }
 
-const useGetSentence = ({ statuteId, query }: Props): ReturnValue => {
+const useGetSentence = ({ name, query }: Props): ReturnValue => {
 	const response = useQuery({
-		queryKey: ['sentence', query, statuteId],
+		queryKey: ['sentence', query, name],
 		queryFn: async () => {
-			return statuteId
-				? axiosClient.get(`/sentence/${statuteId}/${query}`)
-				: null
+			return name ? axiosClient.get(`/sentence/${name}/${query}`) : null
 		},
 	})
 
