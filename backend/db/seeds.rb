@@ -104,6 +104,17 @@ Statute.create!(
   url: 'https://www.legis.la.gov/legis/Law.aspx?d=78482'
 )
 
+# Simple Assault RS 14:38
+Statute.create!(
+  conditions: [
+    {
+      sentence: 'Whoever commits a simple assault shall be fined not more than two hundred dollars, or imprisoned for not more than ninety days, or both.'
+    },
+  ],
+  name: 'RS-14-38',
+  title: 'Simple Assault - RS 14:38',
+  url: 'https://www.legis.la.gov/legis/Law.aspx?d=78491'
+)
 # Negligent Arson - RS 14:52.2
 negligent_arson_rs_14_52_2 = Statute.create!(
   conditions: [
