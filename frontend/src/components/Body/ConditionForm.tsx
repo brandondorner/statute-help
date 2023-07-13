@@ -108,7 +108,7 @@ const ConditionForm = ({ name, setIsFormDirty }: Props) => {
 
 				return (
 					<Flex alignItems={'center'} key={`input-${inputName}`}>
-						<FormLabel htmlFor={inputName} pr={8}>
+						<FormLabel htmlFor={inputName} pb={8} pr={8}>
 							{field.text}
 						</FormLabel>
 						{field.input_type === 'dropdown' ? (
