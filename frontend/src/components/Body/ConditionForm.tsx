@@ -17,25 +17,45 @@ const ConditionForm = ({ name, setIsFormDirty }: Props) => {
 	const { conditionFields, isLoading } = useConditionFields({ name })
 	const query = useLocation().search
 
-	const [formValues, setFormValues] = useState<{
-		[key: string]: string
-	}>({})
+	const [formValues, setFormValues] = useState<{ [key: string]: string }>({})
 
 	// Update form values with initial query params and when switching between statutes
 	useEffect(() => {
-		let values = {}
-		if (query && conditionFields) {
+		if (!isLoading && conditionFields) {
+			const initialFormValues: { [key: string]: string } = {}
+
 			conditionFields.forEach((field) => {
 				const queryValue = new URLSearchParams(query).get(field.input_name)
-				if (queryValue) {
-					values = { ...values, [field.input_name]: queryValue }
-				}
+				initialFormValues[field.input_name] = queryValue || 'false'
 			})
+
+			setFormValues(initialFormValues)
+			setIsFormDirty(false)
+		}
+	}, [isLoading, conditionFields, query, setIsFormDirty])
+
+	// Recursive function that determines if the conditionField should be displayed based on the status of its dependents
+	const shouldDisplayField = (field: ConditionField) => {
+		// Always display field if it isn't dependent on anything
+		if (!field.dependent_on) {
+			return true
 		}
 
-		setFormValues(values)
-		setIsFormDirty(false)
-	}, [conditionFields])
+		const dependentOnValue = formValues[field.dependent_on]
+		const dependentOnField = conditionFields.find(
+			(f) => f.input_name === field.dependent_on
+		)
+
+		if (!dependentOnField) {
+			return false
+		}
+
+		if (!shouldDisplayField(dependentOnField)) {
+			return false
+		}
+
+		return dependentOnValue === field.dependent_condition
+	}
 
 	if (isLoading) {
 		return <Loading />
