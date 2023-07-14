@@ -125,7 +125,7 @@ Statute.create!(
   ],
   name: 'RS-14-38-1',
   title: 'Mingling Harmful Substances - RS 14:38.1',
-  url: 'https://www.legis.la.gov/legis/Law.aspx?d=78491'
+  url: 'https://www.legis.la.gov/legis/Law.aspx?d=78492'
 )
 
 # Negligent Arson - RS 14:52.2
