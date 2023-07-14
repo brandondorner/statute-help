@@ -109,7 +109,7 @@ Statute.create!(
   conditions: [
     {
       sentence: 'Whoever commits a simple assault shall be fined not more than two hundred dollars, or imprisoned for not more than ninety days, or both.'
-    },
+    }
   ],
   name: 'RS-14-38',
   title: 'Simple Assault - RS 14:38',
@@ -121,7 +121,7 @@ Statute.create!(
   conditions: [
     {
       sentence: 'Whoever commits the crime of mingling harmful substances shall be imprisoned, with or without hard labor, for not more than two years or fined not more than one thousand dollars, or both.'
-    },
+    }
   ],
   name: 'RS-14-38-1',
   title: 'Mingling Harmful Substances - RS 14:38.1',
