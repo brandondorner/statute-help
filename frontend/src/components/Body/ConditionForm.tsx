@@ -67,7 +67,7 @@ const ConditionForm = ({ isFormDirty, name, setIsFormDirty }: Props) => {
 			return false
 		}
 
-		return dependentOnValue === field.dependent_condition
+		return dependentOnValue == field.dependent_condition
 	}
 
 	if (isLoading) {
