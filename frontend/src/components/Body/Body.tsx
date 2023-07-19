@@ -87,6 +87,7 @@ const Body = () => {
 							{selectedStatute.url}
 						</Link>
 						<ConditionForm
+							isFormDirty={isFormDirty}
 							name={selectedStatute.name}
 							setIsFormDirty={setIsFormDirty}
 						/>

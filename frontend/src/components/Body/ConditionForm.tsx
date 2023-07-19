@@ -8,11 +8,12 @@ import makeSearchParams from 'utils/makeSearchParams'
 import ConditionField from 'types/conditionField'
 
 type Props = {
+	isFormDirty: boolean
 	name: string
 	setIsFormDirty: Dispatch<SetStateAction<boolean>>
 }
 
-const ConditionForm = ({ name, setIsFormDirty }: Props) => {
+const ConditionForm = ({ isFormDirty, name, setIsFormDirty }: Props) => {
 	const navigate = useNavigate()
 	const { conditionFields, isLoading } = useConditionFields({ name })
 	const query = useLocation().search
@@ -155,6 +156,7 @@ const ConditionForm = ({ name, setIsFormDirty }: Props) => {
 				{conditionFields.length ? (
 					<Button
 						colorScheme="teal"
+						isDisabled={!isFormDirty}
 						onClick={handleSubmit}
 						height="fit-content"
 						mt={4}
