@@ -17,17 +17,29 @@ const ConditionForm = ({ isFormDirty, name, setIsFormDirty }: Props) => {
 	const navigate = useNavigate()
 	const { conditionFields, isLoading } = useConditionFields({ name })
 	const query = useLocation().search
-
 	const [formValues, setFormValues] = useState<{ [key: string]: string }>({})
+
+	const [isSelectInputValid, setIsSelectInputValid] = useState<boolean>(false)
+	const defaultInputValue = 'false'
 
 	// Update form values with initial query params and when switching between statutes
 	useEffect(() => {
 		if (!isLoading && conditionFields) {
 			const initialFormValues: { [key: string]: string } = {}
+			setIsSelectInputValid(false)
 
 			conditionFields.forEach((field) => {
 				const queryValue = new URLSearchParams(query).get(field.input_name)
-				initialFormValues[field.input_name] = queryValue || 'false'
+				initialFormValues[field.input_name] = queryValue || defaultInputValue
+
+				// Set isSelectInputValid to true if a value is in the url params and the input is a dropdown
+				if (
+					field.input_type === 'dropdown' &&
+					queryValue &&
+					queryValue !== defaultInputValue
+				) {
+					setIsSelectInputValid(true)
+				}
 			})
 
 			setFormValues(initialFormValues)
@@ -122,11 +134,10 @@ const ConditionForm = ({ isFormDirty, name, setIsFormDirty }: Props) => {
 										return
 									}
 									handleFieldChange(inputName, option.value)
+									setIsSelectInputValid(true)
 								}}
 								options={field.options}
 								name={inputName}
-								placeholder={field.text}
-								required
 								styles={{
 									container: (baseStyles) => ({
 										...baseStyles,
@@ -157,7 +168,7 @@ const ConditionForm = ({ isFormDirty, name, setIsFormDirty }: Props) => {
 				{conditionFields.length ? (
 					<Button
 						colorScheme="teal"
-						isDisabled={!isFormDirty}
+						isDisabled={!isFormDirty || !isSelectInputValid}
 						onClick={handleSubmit}
 						height="fit-content"
 						mt={4}
