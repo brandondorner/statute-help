@@ -99,13 +99,14 @@ const ConditionForm = ({ isFormDirty, name, setIsFormDirty }: Props) => {
 	return (
 		<Flex flexDir="column" height="100%" mt="16px">
 			{conditionFields.map((field) => {
+				if (!shouldDisplayField(field)) {
+					return null
+				}
+
 				const inputName = field.input_name
 				const isQueryTrue = formValues[inputName] === 'true'
 				const defaultOption = getOptionFromQuery({ field })
 
-				if (!shouldDisplayField(field)) {
-					return null
-				}
 
 				return (
 					<Flex alignItems={'center'} key={`input-${inputName}`} pb={8}>
