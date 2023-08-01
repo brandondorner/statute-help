@@ -1,4 +1,4 @@
-# rubocop:disable Naming/VariableNumber, Layout/LineLength
+# rubocop:disable Naming/VariableNumber, Layout/LineLength, Layout/CommentIndentation
 # frozen_string_literal: true
 
 # This file should contain all the record creation needed to seed the database with its default values.
