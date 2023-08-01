@@ -42,6 +42,18 @@ const ConditionForm = ({ isFormDirty, name, setIsFormDirty }: Props) => {
 				}
 			})
 
+			const fieldWithDropdowInput = conditionFields.find(
+				(field) => field.input_type === 'dropdown'
+			)
+
+			// Set isSelectInputValid to true if there are no fields with dropdown inputs. If there are no inputs then the
+			// input is unable to be invalid
+			// this could potentially be pulled into an extraneous function checkForDropdownInput
+			// but for now it fixes the bug, I think just split it into two PRS
+			if (!fieldWithDropdowInput) {
+				setIsSelectInputValid(true)
+			}
+
 			setFormValues(initialFormValues)
 			setIsFormDirty(false)
 		}
