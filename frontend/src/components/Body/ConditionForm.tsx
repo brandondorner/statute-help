@@ -124,6 +124,7 @@ const ConditionForm = ({ isFormDirty, name, setIsFormDirty }: Props) => {
 		<Flex flexDir="column" height="100%" mt="16px">
 			{conditionFields.map((field) => {
 				if (!shouldDisplayField(field)) {
+					formValues[field.input_name] = defaultInputValue
 					return null
 				}
 
