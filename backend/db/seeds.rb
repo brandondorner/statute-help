@@ -6,7 +6,7 @@
 
 # Create statutes
 statute1 = Statute.create!(
-  conditions: [
+  sentences: [
     { repeat: true, sentence: '12 years and $5,000 fine' },
     { repeat: false, sentence: '5 years and $1,000 fine' }
   ],
@@ -22,7 +22,7 @@ statute1.condition_fields.create!(
 )
 
 statute2 = Statute.create!(
-  conditions: [
+  sentences: [
     { weight: 1, sentence: '1 year' },
     { weight: 2, sentence: '3 years' },
     { weight: 3, sentence: '5 years' }
@@ -42,7 +42,7 @@ statute2.condition_fields.create!(
 
 # More condition complexity
 statute3 = Statute.create!(
-  conditions: [
+  sentences: [
     { felon: false, repeat: false, sentence: '1 year and $5,000 fine' },
     { felon: false, repeat: true, sentence: '5 years and $5,000 fine' },
     { felon: true, repeat: false, sentence: '12 years and $5,000 fine' },
@@ -71,7 +71,7 @@ statute3.condition_fields.create!(
 
 # Aggravated Assault RS 14:37
 aggravated_assault_rs_14_37 = Statute.create!(
-  conditions: [
+  sentences: [
     {
       while_stealing: false,
       sentence: 'Whoever commits an aggravated assault shall be fined not more than one thousand dollars or imprisoned for not more than six months, or both'
@@ -94,7 +94,7 @@ aggravated_assault_rs_14_37.condition_fields.create!(
 
 # Aggravated Assault With A Firearm RS 14:37.4
 Statute.create!(
-  conditions: [
+  sentences: [
     {
       sentence: 'Shall be fined not more than ten thousand dollars or imprisoned for not more than ten years, with or without hard labor, or both.'
     }
@@ -106,7 +106,7 @@ Statute.create!(
 
 # Domestic Abuse Aggravated Assault RS 14:37.7
 domestic_abuse_aggravated_assault_rs_14_37_7 = Statute.create!(
-  conditions: [
+  sentences: [
     {
       child_endangerment: false,
       sentence: 'Whoever commits the crime of domestic abuse aggravated assault shall be imprisoned at hard labor for not less than one year nor more than five years and fined not more than five thousand dollars.'
@@ -129,7 +129,7 @@ domestic_abuse_aggravated_assault_rs_14_37_7.condition_fields.create!(
 
 # Simple Assault RS 14:38
 Statute.create!(
-  conditions: [
+  sentences: [
     {
       sentence: 'Whoever commits a simple assault shall be fined not more than two hundred dollars, or imprisoned for not more than ninety days, or both.'
     }
@@ -141,7 +141,7 @@ Statute.create!(
 
 # Mingling Harmful Substances RS 14:38.1
 Statute.create!(
-  conditions: [
+  sentences: [
     {
       sentence: 'Whoever commits the crime of mingling harmful substances shall be imprisoned, with or without hard labor, for not more than two years or fined not more than one thousand dollars, or both.'
     }
@@ -153,7 +153,7 @@ Statute.create!(
 
 # Negligent Arson - RS 14:52.2
 negligent_arson_rs_14_52_2 = Statute.create!(
-  conditions: [
+  sentences: [
     {
       death: true,
       sentence: 'Whoever commits the crime of negligent arson resulting in death or serious bodily injury to a human being shall be fined not more than five thousand dollars and imprisoned, with or without hard labor, for not more than five years. In addition, the offender shall be ordered to pay restitution for damages sustained.'
@@ -207,7 +207,7 @@ negligent_arson_rs_14_52_2.condition_fields.create!(
 # DROPDOWN, CHECKBOX
 
 criminal_trespass_rs_14_63 = Statute.create!(
-  conditions: [
+  sentences: [
     {
       offenses: 1,
       sentence: 'For the first offense, the fine shall be not less than one hundred dollars and not more than five hundred dollars, or imprisonment for not more than thirty days, or both.',
@@ -266,7 +266,7 @@ criminal_trespass_rs_14_63.condition_fields.create!(
 
 # Theft - RS 14:67
 rs_16_47 = Statute.create!(
-  conditions: [
+  sentences: [
     { value: 1, sentence: 'The offender shall be imprisoned at hard labor for not more than twenty years, or may be fined not more than fifty thousand dollars, or both.' },
     { value: 2, sentence: 'The offender shall be imprisoned, with or without hard labor, for not more than ten years, or may be fined not more than ten thousand dollars, or both.' },
     { value: 3, sentence: 'The offender shall be imprisoned, with or without hard labor, for not more than five years, or may be fined not more than three thousand dollars, or both.' },
@@ -300,7 +300,7 @@ rs_16_47.condition_fields.create!(
 
 # Institutional vandalism RS 14:225
 rs_14_225 = Statute.create!(
-  conditions: [
+  sentences: [
     { damage: 1, sentence: 'The offender shall be fined not more than five hundred dollars, or imprisoned for not more than six months, or both.' },
     { damage: 2, sentence: 'The offender shall be fined not more than one thousand dollars, or imprisoned, with or without hard labor, for not more than two years or both.' },
     { damage: 3, sentence: 'The offender shall be fined not more than ten thousand dollars, or imprisoned, with or without hard labor, for not less than one nor more than ten years, or both.' }
@@ -323,7 +323,7 @@ rs_14_225.condition_fields.create!(
 
 # # Penalty for distribution or possession with intent to distribute narcotic drugs listed in Schedule I; possession of marijuana, synthetic cannabinoids, and heroin - RS 40:966
 rs_40_966 = Statute.create!(
-  conditions: [
+  sentences: [
   # Intent sentences
     # Marijuana
     {

@@ -4,7 +4,7 @@ import Sentence from 'types/sentence'
 
 type ReturnValue = {
 	isLoading: boolean
-	condition: Sentence
+	sentence: Sentence
 }
 
 const useSentence = (): ReturnValue => {
@@ -14,7 +14,7 @@ const useSentence = (): ReturnValue => {
 	const { data, isLoading } = useGetSentence({ name, query })
 
 	return {
-		condition: data,
+		sentence: data,
 		isLoading,
 	}
 }

@@ -14,7 +14,7 @@ const Body = () => {
 	const { statutes, isLoading } = useAllStatutes()
 	const { name } = useParams()
 	const navigate = useNavigate()
-	const { condition } = useSentence()
+	const { sentence } = useSentence()
 	const [isFormDirty, setIsFormDirty] = useState(false)
 
 	// If there is a name in the params then set the corresponding statute to selectedStatute
@@ -92,7 +92,7 @@ const Body = () => {
 							setIsFormDirty={setIsFormDirty}
 						/>
 					</Flex>
-					<Sentence condition={condition} isFormDirty={isFormDirty} />
+					<Sentence sentence={sentence} isFormDirty={isFormDirty} />
 				</>
 			) : null}
 		</Flex>
