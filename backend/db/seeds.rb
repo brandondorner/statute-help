@@ -4,6 +4,7 @@
 require_relative 'seed_data/rs_14_37'
 require_relative 'seed_data/rs_14_37_7'
 require_relative 'seed_data/rs_37_4'
+require_relative 'seed_data/rs_14_38'
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -72,18 +73,6 @@ statute3.condition_fields.create!(
   ]
 )
 # Real data
-
-# Simple Assault RS 14:38
-Statute.create!(
-  sentences: [
-    {
-      sentence: 'Whoever commits a simple assault shall be fined not more than two hundred dollars, or imprisoned for not more than ninety days, or both.'
-    }
-  ],
-  name: 'RS-14-38',
-  title: 'Simple Assault - RS 14:38',
-  url: 'https://www.legis.la.gov/legis/Law.aspx?d=78491'
-)
 
 # Mingling Harmful Substances RS 14:38.1
 Statute.create!(
