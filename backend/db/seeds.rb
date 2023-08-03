@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require_relative 'seed_data/rs_14_37'
+require_relative 'seed_data/rs_37_4'
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -70,18 +71,6 @@ statute3.condition_fields.create!(
   ]
 )
 # Real data
-
-# Aggravated Assault With A Firearm RS 14:37.4
-Statute.create!(
-  sentences: [
-    {
-      sentence: 'Shall be fined not more than ten thousand dollars or imprisoned for not more than ten years, with or without hard labor, or both.'
-    }
-  ],
-  name: 'RS-14-37-4',
-  title: 'Aggravated Assault with A Firearm - RS 14:37.4',
-  url: 'https://www.legis.la.gov/legis/Law.aspx?d=78482'
-)
 
 # Domestic Abuse Aggravated Assault RS 14:37.7
 domestic_abuse_aggravated_assault_rs_14_37_7 = Statute.create!(
