@@ -7,6 +7,7 @@ require_relative 'seed_data/rs_14_37_7'
 require_relative 'seed_data/rs_14_38'
 require_relative 'seed_data/rs_14_38_1'
 require_relative 'seed_data/rs_14_52_2'
+require_relative 'seed_data/rs_14_63'
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -76,130 +77,6 @@ statute3.condition_fields.create!(
 )
 # Real data
 
-# Mingling Harmful Substances RS 14:38.1
-Statute.create!(
-  sentences: [
-    {
-      sentence: 'Whoever commits the crime of mingling harmful substances shall be imprisoned, with or without hard labor, for not more than two years or fined not more than one thousand dollars, or both.'
-    }
-  ],
-  name: 'RS-14-38-1',
-  title: 'Mingling Harmful Substances - RS 14:38.1',
-  url: 'https://www.legis.la.gov/legis/Law.aspx?d=78492'
-)
-
-# Negligent Arson - RS 14:52.2
-negligent_arson_rs_14_52_2 = Statute.create!(
-  sentences: [
-    {
-      death: true,
-      sentence: 'Whoever commits the crime of negligent arson resulting in death or serious bodily injury to a human being shall be fined not more than five thousand dollars and imprisoned, with or without hard labor, for not more than five years. In addition, the offender shall be ordered to pay restitution for damages sustained.'
-    },
-    {
-      endangerment: true,
-      sentence: 'Whoever commits the crime of negligent arson where it is foreseeable that human life might be endangered shall be fined not more than three thousand dollars and imprisoned, with or without hard labor, for not more than three years. In addition, the offender shall be ordered to pay restitution for damages sustained.'
-    },
-    {
-      endangerment: false,
-      first_conviction: false,
-      sentence: 'On a second and subsequent conviction, the offender shall be fined not more than two thousand dollars and imprisoned, with or without hard labor, for not more than two years. In addition, the offender shall be ordered to pay restitution for damages sustained.'
-    },
-    {
-      endangerment: false,
-      first_conviction: true,
-      sentence: ' On a first conviction, the offender shall be fined not more than one thousand dollars, or imprisoned for not more than six months, or both. In addition, the offender shall be ordered to pay restitution for damages sustained.'
-    }
-  ],
-  name: 'RS-14-52-2',
-  title: 'Negligent Arson - RS 14:52.2',
-  url: 'https://www.legis.la.gov/legis/Law.aspx?d=1106710'
-)
-
-negligent_arson_rs_14_52_2.condition_fields.create!(
-  [
-    {
-      input_name: 'death',
-      input_type: 'checkbox',
-      text: 'Did the crime of negligent arson result in death or serious bodily injury?'
-    },
-    {
-      dependent_condition: 'false',
-      dependent_on: 'death',
-      input_name: 'endangerment',
-      input_type: 'checkbox',
-      text: 'Was the crime of negligent arson commited where it is foreseeable that human life might be endangered?'
-    },
-    {
-      dependent_condition: 'false',
-      dependent_on: 'endangerment',
-      input_name: 'first_conviction',
-      input_type: 'checkbox',
-      text: 'Was this the first conviction of negiglent arson?'
-    }
-  ]
-)
-
-# CRIMINAL TRESPASS - RS 14:63
-
-# DROPDOWN, CHECKBOX
-
-criminal_trespass_rs_14_63 = Statute.create!(
-  sentences: [
-    {
-      offenses: 1,
-      sentence: 'For the first offense, the fine shall be not less than one hundred dollars and not more than five hundred dollars, or imprisonment for not more than thirty days, or both.',
-      wildlife: false
-    },
-    {
-      offenses: 1,
-      sentence: 'For the first offense, the fine shall be not less than one hundred dollars and not more than five hundred dollars, or imprisonment for not more than thirty days, or both. <br /> <br /> In addition to the foregoing penalties, and notwithstanding any other law to the contrary, a person convicted under this Section who has killed or otherwise misappropriated any wildlife, as defined by R.S. 56:8, in the course of commission of the offense shall forfeit the misappropriated wildlife to the law enforcement authority, and shall be ordered to pay the value of the misappropriated wildlife into the Conservation Fund of the Department of Wildlife and Fisheries in accordance with R.S. 56:40.1 et seq. The value of the wildlife that was misappropriated shall be determined by the guidelines adopted by the Wildlife and Fisheries Commission pursuant to R.S. 56:40.2.',
-      wildlife: true
-    },
-    {
-      offenses: 2,
-      sentence: 'For the second offense, the fine shall be not less than three hundred dollars and not more than seven hundred fifty dollars, or imprisonment for not more than ninety days, or both.',
-      wildlife: false
-    },
-    {
-      offenses: 2,
-      sentence: 'For the second offense, the fine shall be not less than three hundred dollars and not more than seven hundred fifty dollars, or imprisonment for not more than ninety days, or both. <br /> <br />  In addition to the foregoing penalties, and notwithstanding any other law to the contrary, a person convicted under this Section who has killed or otherwise misappropriated any wildlife, as defined by R.S. 56:8, in the course of commission of the offense shall forfeit the misappropriated wildlife to the law enforcement authority, and shall be ordered to pay the value of the misappropriated wildlife into the Conservation Fund of the Department of Wildlife and Fisheries in accordance with R.S. 56:40.1 et seq. The value of the wildlife that was misappropriated shall be determined by the guidelines adopted by the Wildlife and Fisheries Commission pursuant to R.S. 56:40.2.',
-      wildlife: true
-    },
-    {
-      offenses: 3,
-      sentence: 'For the third offense and all subsequent offenses, the fine shall be not less than five hundred dollars and not more than one thousand dollars, or imprisonment for not less than sixty days and not more than six months, or both, and forfeiture to the law enforcement authority of any property seized in connection with the violation.',
-      wildlife: false
-    },
-    {
-      offenses: 3,
-      sentence: 'For the third offense and all subsequent offenses, the fine shall be not less than five hundred dollars and not more than one thousand dollars, or imprisonment for not less than sixty days and not more than six months, or both, and forfeiture to the law enforcement authority of any property seized in connection with the violation. <br /><br />  In addition to the foregoing penalties, and notwithstanding any other law to the contrary, a person convicted under this Section who has killed or otherwise misappropriated any wildlife, as defined by R.S. 56:8, in the course of commission of the offense shall forfeit the misappropriated wildlife to the law enforcement authority, and shall be ordered to pay the value of the misappropriated wildlife into the Conservation Fund of the Department of Wildlife and Fisheries in accordance with R.S. 56:40.1 et seq. The value of the wildlife that was misappropriated shall be determined by the guidelines adopted by the Wildlife and Fisheries Commission pursuant to R.S. 56:40.2.',
-      wildlife: true
-    }
-  ],
-  name: 'RS-14-63',
-  title: 'CRIMINAL TRESPASS - RS 14:63',
-  url: 'https://www.legis.la.gov/legis/Law.aspx?d=78584'
-)
-
-criminal_trespass_rs_14_63.condition_fields.create!(
-  [
-    {
-      input_name: 'offenses',
-      input_type: 'dropdown',
-      text: 'Select the number of offenses',
-      options: [
-        { label: 'First Offense', value: 1 },
-        { label: 'Second Offense', value: 2 },
-        { label: 'Third or subsequent offense', value: 3 }
-      ]
-    },
-    {
-      input_name: 'wildlife',
-      input_type: 'checkbox',
-      text: 'Did the person convicted under this Section kill or otherwise misappropriate any wildlife, as defined by R.S. 56:8, in the course of commission of the offense?'
-    }
-  ]
-)
 
 # Theft - RS 14:67
 rs_16_47 = Statute.create!(
