@@ -9,6 +9,7 @@ require_relative 'seed_data/rs_14_38_1'
 require_relative 'seed_data/rs_14_52_2'
 require_relative 'seed_data/rs_14_63'
 require_relative 'seed_data/rs_14_67'
+require_relative 'seed_data/rs_14_225'
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -77,29 +78,6 @@ statute3.condition_fields.create!(
   ]
 )
 # Real data
-
-# Institutional vandalism RS 14:225
-rs_14_225 = Statute.create!(
-  sentences: [
-    { damage: 1, sentence: 'The offender shall be fined not more than five hundred dollars, or imprisoned for not more than six months, or both.' },
-    { damage: 2, sentence: 'The offender shall be fined not more than one thousand dollars, or imprisoned, with or without hard labor, for not more than two years or both.' },
-    { damage: 3, sentence: 'The offender shall be fined not more than ten thousand dollars, or imprisoned, with or without hard labor, for not less than one nor more than ten years, or both.' }
-  ],
-  name: 'RS-14-225',
-  title: 'Institutional Vandalism - RS 14:225',
-  url: 'https://www.legis.la.gov/legis/Law.aspx?d=78375'
-)
-
-rs_14_225.condition_fields.create!(
-  input_name: 'damage',
-  input_type: 'dropdown',
-  text: 'Select damage amount:',
-  options: [
-    { label: 'Less than five hundred follars', value: 1 },
-    { label: 'Between five hundred dollars and fifty thousand dollars', value: 2 },
-    { label: 'More than fifty thousand dollars', value: 3 }
-  ]
-)
 
 # # Penalty for distribution or possession with intent to distribute narcotic drugs listed in Schedule I; possession of marijuana, synthetic cannabinoids, and heroin - RS 40:966
 rs_40_966 = Statute.create!(
