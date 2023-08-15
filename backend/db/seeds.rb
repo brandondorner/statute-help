@@ -3,7 +3,7 @@
 
 require_relative 'seed_data/rs_14_37'
 require_relative 'seed_data/rs_14_37_4'
-require_relative 'seed_data/rs_14_37_7'
+require_relative 'seed_data/rs_14_37_7/rs_14_37_7'
 require_relative 'seed_data/rs_14_38'
 require_relative 'seed_data/rs_14_38_1'
 require_relative 'seed_data/rs_14_52_2'
