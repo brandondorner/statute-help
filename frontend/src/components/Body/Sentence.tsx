@@ -12,7 +12,14 @@ const Sentence = ({ sentence, isFormDirty }: Props) => {
 		<Flex flexDir={'column'}>
 			<Heading m={4}>Sentence:</Heading>
 			{sentence && !isFormDirty ? (
-				<Text>{parse(sentence.sentence)}</Text>
+				<Flex flexDir={'column'}>
+					<Heading as="h2" color={'red'}>
+						Disclaimer: This is not legal documentation and should not be
+						treated as such nor should any actions be made using this
+						information.
+					</Heading>
+					<Text>{parse(sentence.sentence)}</Text>
+				</Flex>
 			) : null}
 		</Flex>
 	)
