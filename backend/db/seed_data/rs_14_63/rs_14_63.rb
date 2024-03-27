@@ -71,7 +71,7 @@ statute.condition_fields.create!(
     {
       input_name: 'wildlife',
       input_type: 'checkbox',
-      text: 'Did the person convicted under this Section kill or otherwise misappropriate any wildlife, as defined by R.S. 56:8, in the course of commission of the offense?'
+      text: 'Did the person convicted under this Section kill or otherwise misappropriate any wildlife, as defined by <a href="https://legis.la.gov/Legis/Law.aspx?d=105616">R.S. 56:8</a>, in the course of commission of the offense?'
     }
   ]
 )
